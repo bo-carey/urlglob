@@ -1,0 +1,15 @@
+{
+  "name": "urlglob-ts",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node ./src/app",
+    "build": "node ./src/url-glob",
+    "test": "mocha --recursive ./test"
+  },
+  "repository" :{ 
+  	"type" : "git",
+    "url" : ""
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
