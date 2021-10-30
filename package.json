@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node ./src/app",
-    "build": "node ./src/url-glob",
-    "test": "mocha --recursive ./test"
+    "build": "node ./src/url-glob"
   },
   "repository" :{ 
   	"type" : "git",
-    "url" : ""
+    "url" : "https://github.com/bo-carey/urlglob-ts.git"
   },
   "dependencies": {},
   "devDependencies": {}
