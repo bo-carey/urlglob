@@ -1,4 +1,4 @@
-import UrlGlob from "../src/index";
+import UrlGlob from "./index";
 
 describe('UrlGlob class', () => {
 	it('should match url glob patterns', () => {
