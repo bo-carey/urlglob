@@ -4,8 +4,13 @@
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
+    "lint": "npm eslint src",
+    "lint:fix": "npm run lint --fix",
+    "prettier": "prettier src -c",
+    "prettier:fix": "npm run prettier -- --write",
     "test": "jest --no-cache --runInBand",
-    "build": "tsc"
+    "ts:check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
