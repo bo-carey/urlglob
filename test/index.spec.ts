@@ -1,4 +1,4 @@
-import { matchUrl } from './index';
+import { matchUrl } from '../src/index';
 
 const glob = '*w3schools*/*d/**';
 const correctUrl = 'https://www.w3schools.com/md/sdfsdf/dfgdfg/';
