@@ -1,6 +1,6 @@
 {
   "name": "@bo-carey/urlglob",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -12,16 +12,15 @@
     "lint:fix": "npm run lint --fix",
     "prettier": "prettier src -c",
     "prettier:fix": "npm run prettier -- --write",
-    "release": "gh release create",
     "test": "jest --no-cache --runInBand",
     "ts:check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bo-carey/urlglob-ts.git"
+    "url": "https://github.com/bo-carey/urlglob.git"
   },
   "bugs": {
-    "url": "https://github.com/tomchen/example-typescript-package/issues"
+    "url": "https://github.com/bo-carey/urlglob/issues"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
