@@ -1,6 +1,6 @@
 {
   "name": "@bo-carey/urlglob",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -12,6 +12,7 @@
     "lint:fix": "npm run lint --fix",
     "prettier": "prettier src -c",
     "prettier:fix": "npm run prettier -- --write",
+    "release": "gh release create",
     "test": "jest --no-cache --runInBand",
     "ts:check": "tsc --noEmit"
   },
