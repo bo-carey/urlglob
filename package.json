@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "lint": "npm eslint src",
+    "lint": "npx eslint src",
     "lint:fix": "npm run lint --fix",
     "prettier": "prettier src -c",
     "prettier:fix": "npm run prettier -- --write",
