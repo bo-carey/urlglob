@@ -12,9 +12,8 @@ npm install urlglob-ts
 ## How to use :
 
 ```javascript
-var UrlGlob = require('urlglob-ts');
-var urlGlob = new UrlGlob('**');
-urlGlob.match('http://google.com.eg'); // take a url and returns true or false
+var { matchUrl } from 'urlglob-ts';
+matchUrl('http://google.com.eg', '**');
 ```
 
 ## Matching symbols :

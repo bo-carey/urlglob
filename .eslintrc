@@ -12,7 +12,7 @@
   },
   "plugins": ["@typescript-eslint"],
   "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
-  "ignorePatterns": ["./dist/*", "./jest.config.js"],
+  "ignorePatterns": ["./README.md", "./dist/*", "./jest.config.js"],
   "rules": {
     "@typescript-eslint/naming-convention": [
       "warn",
