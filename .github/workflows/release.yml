@@ -2,23 +2,10 @@ name: Node.js Package
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: 'Setup node'
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - run: npm ci
-      - run: npm test
-
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,12 +16,12 @@ jobs:
           node-version: 14
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm build
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-gpr:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -49,6 +36,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@bo-carey'
       - run: npm ci
+      - run: npm build
       - run: echo registry=https://npm.pkg.github.com/bo-carey >> .npmrc
       - run: npm publish
         env:
