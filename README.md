@@ -1,4 +1,4 @@
-# urlglob-ts
+# @bo-carey/urlglob
 
 Typescript library for url globing.
 Easier than regex string matching patterns for urls.\
@@ -6,13 +6,13 @@ Easier than regex string matching patterns for urls.\
 ## Installation
 
 ```
-npm install urlglob-ts
+npm install @bo-carey/urlglob
 ```
 
 ## How to use :
 
 ```javascript
-var { matchUrl } from 'urlglob-ts';
+var { matchUrl } from '@bo-carey/urlglob';
 matchUrl('http://google.com.eg', '**');
 ```
 
