@@ -1,9 +1,19 @@
-import UrlGlob from './index';
+import { isValidUrl, matchUrl } from './index';
 
-describe('UrlGlob class', () => {
+const glob = '*w3schools*/*d/**';
+const correctUrl = 'https://www.w3schools.com/md/sdfsdf/dfgdfg/';
+const wrongUrl = 'https://www.google.com/md/sdfsdf/dfgdfg/';
+
+describe('matchUrl', () => {
   it('should match url glob patterns', () => {
-    const glob = new UrlGlob('*w3schools*/*d/**');
-    expect(glob.match('https://www.w3schools.com/md/sdfsdf/dfgdfg/')).toBe(true);
-    expect(glob.match('https://www.google.com/md/sdfsdf/dfgdfg/')).toBe(false);
+    expect(matchUrl(correctUrl, glob)).toBe(true);
+    expect(matchUrl(wrongUrl, glob)).toBe(false);
+  });
+});
+
+describe('isValidUrl', () => {
+  it('should validate urls', () => {
+    expect(isValidUrl(correctUrl)).toBe(true);
+    expect(isValidUrl(glob)).toBe(false);
   });
 });
