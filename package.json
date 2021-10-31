@@ -19,6 +19,9 @@
     "type": "git",
     "url": "https://github.com/bo-carey/urlglob-ts.git"
   },
+  "bugs": {
+    "url": "https://github.com/tomchen/example-typescript-package/issues"
+  },
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
