@@ -1,7 +1,7 @@
 # @bo-carey/urlglob
 
 Typescript library for url globing.
-Easier than regex string matching patterns for urls.\
+Easier than regex string matching patterns for urls.
 
 ## Installation
 
