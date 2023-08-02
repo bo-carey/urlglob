@@ -1,6 +1,10 @@
 {
   "name": "@bo-carey/urlglob",
+  "description": "A lightweight TypeScript library for matching URLs with glob patterns",
   "version": "1.1.0",
+  "homepage": "https://github.com/bo-carey/urlglob",
+  "author": "Bo Carey",
+  "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -37,5 +41,19 @@
   "files": [
     "dist",
     "README.md"
+  ],
+  "keywords": [
+    "urlglob",
+    "globbing",
+    "url-matching",
+    "pattern-matching",
+    "url",
+    "glob-patterns",
+    "nodejs",
+    "typescript",
+    "regex-alternative",
+    "url-parsing",
+    "url-pattern",
+    "web-development"
   ]
 }
