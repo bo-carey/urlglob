@@ -1,26 +1,59 @@
-import { matchUrl } from '../src/index';
+import { createGlob } from '../src/index';
 
-describe('matchUrl', () => {
-  it('should match url glob patterns', () => {
-    const glob = '*w3schools*/*d/**';
-    const correctUrl = 'https://www.w3schools.com/md/sdfsdf/dfgdfg/';
-    const wrongUrl = 'https://www.google.com/md/sdfsdf/dfgdfg/';
+describe('createGlob', () => {
 
-    expect(matchUrl(correctUrl, glob)).toBe(true);
-    expect(matchUrl(wrongUrl, glob)).toBe(false);
+  it('should escape special regex characters', () => {
+    const testCases = [
+      { query: 'http://example.com/+.?^${}()|[]\\', glob: '^http:\\/\\/example\\.com\\/\\+\\.\\?\\^\\$\\{\\}\\(\\)\\|\\[\\]\\\\$' },
+      { query: 'http://another.com/**+*', glob: '^http:\\/\\/another\\.com\\/.*\\+[^/]*$' },
+    ];
+    testCases.forEach(tc => {
+      const regex = createGlob(tc.query);
+      expect(regex.source).toBe(tc.glob);
+    });
+  });
+
+  it('should transform single asterisks correctly', () => {
+    const testCases = [
+      { query: 'http://example.com/*', glob: '^http:\\/\\/example\\.com\\/[^/]*$' },
+      { query: 'http://example.com/user/*/details', glob: '^http:\\/\\/example\\.com\\/user\\/[^/]*\\/details$' },
+    ];
+    testCases.forEach(tc => {
+      const regex = createGlob(tc.query);
+      expect(regex.source).toBe(tc.glob);
+    });
+  });
+
+  it('should transform double asterisks correctly', () => {
+    const testCases = [
+      { query: 'http://example.com/**', glob: '^http:\\/\\/example\\.com\\/.*$' },
+      { query: 'http://example.com/user/**/details', glob: '^http:\\/\\/example\\.com\\/user(\\/.*\\/|\\/)details$' },
+    ];
+    testCases.forEach(tc => {
+      const regex = createGlob(tc.query);
+      expect(regex.source).toBe(tc.glob);
+    });
   });
 
   it('should differentiate between single and double asterisks', () => {
-    const singleAsteriskGlob = 'http://google.*';
-    const doubleAsteriskGlob = 'http://google.**';
+    const testCases = [
+      { query: 'http://example.com/*/path/**', glob: '^http:\\/\\/example\\.com\\/[^/]*\\/path\\/.*$' },
+      { query: 'http://example.com/**/*', glob: '^http:\\/\\/example\\.com(\\/.*\\/|\\/)[^/]*$' }, 
+    ];
+    testCases.forEach(tc => {
+      const regex = createGlob(tc.query);
+      expect(regex.source).toBe(tc.glob);
+    });
+  });
 
-    const urlWithSection = 'http://google.com/example';
-    const urlWithoutSection = 'http://google.com';
-
-    expect(matchUrl(urlWithSection, singleAsteriskGlob)).toBe(false);
-    expect(matchUrl(urlWithoutSection, singleAsteriskGlob)).toBe(true);
-
-    expect(matchUrl(urlWithSection, doubleAsteriskGlob)).toBe(true);
-    expect(matchUrl(urlWithoutSection, doubleAsteriskGlob)).toBe(true);
+  it('should handle the special /**/ case correctly', () => {
+    const testCases = [
+      { query: 'http://example.com/**/', glob: '^http:\\/\\/example\\.com(\\/.*\\/|\\/)$' },
+      { query: 'http://example.com/**/path/', glob: '^http:\\/\\/example\\.com(\\/.*\\/|\\/)path\\/$' },  
+    ];
+    testCases.forEach(tc => {
+      const regex = createGlob(tc.query);
+      expect(regex.source).toBe(tc.glob);
+    });
   });
 });

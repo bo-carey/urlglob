@@ -1,7 +1,7 @@
 {
   "name": "@bo-carey/urlglob",
   "description": "A lightweight TypeScript library for matching URLs with glob patterns",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/bo-carey/urlglob",
   "author": "Bo Carey",
   "license": "MIT",
@@ -30,8 +30,6 @@
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "eslint": "^8.1.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.3.1",
     "prettier": "^2.4.1",
     "ts-jest": "^27.0.7",
