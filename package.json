@@ -1,7 +1,7 @@
 {
   "name": "@bo-carey/urlglob",
   "description": "A lightweight TypeScript library for matching URLs with glob patterns",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage": "https://github.com/bo-carey/urlglob",
   "author": "Bo Carey",
   "license": "MIT",
